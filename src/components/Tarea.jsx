@@ -15,10 +15,18 @@ function Tarea({index, tarea, setListaTareas, listaTareas}) {
         console.log(tareas);
         setListaTareas(tareas);
     }
+    const eliminarTarea=()=>{
+      let tareas=[...listaTareas];
+      tareas.splice(index,1);
+      setListaTareas(tareas);
+    }
   return (
     <div  className={tarea.estaTachado ? 'tachado' : ''} >
+      <section class="primera-parte-tarea">
         <input type="checkbox" onChange={tachar} />
         <p>{tarea.text}</p> 
+        </section>
+        <img onClick={eliminarTarea} class="tacho" src="trash-solid.svg" />
     </div>
   )
 }
