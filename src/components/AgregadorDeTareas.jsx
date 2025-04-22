@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import date from 'date-and-time'
 
 function AgregadorDeTareas({listaTareas, setListaTareas}) {
+    
+
+    
     const [tareaPre, setTareaPre]=useState("");
     const [id, setId]=useState(0);
     const esValida= (texto) => {
@@ -22,12 +26,23 @@ function AgregadorDeTareas({listaTareas, setListaTareas}) {
 
         }
     }
+    let tareaRapidisima;
+    const tareaMasRapida=()=>{
+        tareaRapidisima=listaTareas[0];
+        listaTareas.map((tarea)=>{
+        if(tarea.estaTachado && tarea.fechaTachado-tarea.fechaCreado<tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado){
+            tareaRapidisima=tarea;
+        }    
+        })
+        console.log(`La tarea mas rapida fue ${tareaRapidisima.texto}, tardando ${tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado}`)
+    }
 
   return (
 
-    <div class="agregador-tareas">
+    <div className="agregador-tareas">
         <input value={tareaPre} onChange={(e)=>setTareaPre(e.target.value)} type="text" /> 
         <button onClick={agregarTarea}>Agregar</button>
+        <button onClick={tareaMasRapida}>Tarea más rápida</button>
     </div>
   )
 }

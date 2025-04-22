@@ -11,8 +11,7 @@ function Tarea({index, tarea, setListaTareas, listaTareas}) {
           tareas[index].estaTachado=false;
           tareas[index].fechaTachado=null;
         }
-        
-        console.log(tareas);
+          
         setListaTareas(tareas);
     }
     const eliminarTarea=()=>{
