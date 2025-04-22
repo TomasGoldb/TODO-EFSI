@@ -7,12 +7,17 @@ import ListaTareas from './components/ListaTareas.jsx'
 function App() {
 
   const [listaTareas, setListaTareas]=useState([]);
+  
 
   return (
-    <>
+    <div class="todo-list">
+      <section>
+        <div class="contenido-todo-list">
     <AgregadorDeTareas listaTareas={listaTareas} setListaTareas={setListaTareas} />
       <ListaTareas setListaTareas={setListaTareas} tareas={listaTareas} />
-    </>
+      </div>
+      </section>
+    </div>
   )
 }
 

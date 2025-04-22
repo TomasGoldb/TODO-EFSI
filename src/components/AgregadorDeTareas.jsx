@@ -19,15 +19,16 @@ function AgregadorDeTareas({listaTareas, setListaTareas}) {
             setId(id+1);
             setListaTareas([...listaTareas, tareaCreada]);
             setTareaPre("");
+
         }
     }
 
   return (
 
-    <>
-        <input onChange={(e)=>setTareaPre(e.target.value)} type="text" /> 
+    <div class="agregador-tareas">
+        <input value={tareaPre} onChange={(e)=>setTareaPre(e.target.value)} type="text" /> 
         <button onClick={agregarTarea}>Agregar</button>
-    </>
+    </div>
   )
 }
 
