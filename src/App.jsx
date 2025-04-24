@@ -10,9 +10,9 @@ function App() {
   
 
   return (
-    <div class="todo-list">
+    <div className="todo-list">
       <section>
-        <div class="contenido-todo-list">
+        <div className="contenido-todo-list">
     <AgregadorDeTareas listaTareas={listaTareas} setListaTareas={setListaTareas} />
       <ListaTareas setListaTareas={setListaTareas} tareas={listaTareas} />
       </div>

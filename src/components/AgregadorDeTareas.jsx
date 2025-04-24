@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import date from 'date-and-time'
+
 
 function AgregadorDeTareas({listaTareas, setListaTareas}) {
     
@@ -27,14 +27,22 @@ function AgregadorDeTareas({listaTareas, setListaTareas}) {
         }
     }
     let tareaRapidisima;
+
     const tareaMasRapida=()=>{
-        tareaRapidisima=listaTareas[0];
-        listaTareas.map((tarea)=>{
-        if(tarea.estaTachado && tarea.fechaTachado-tarea.fechaCreado<tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado){
+        let tareasTachadas=[...listaTareas]
+        tareasTachadas.filter(t=>{t.estaTachado});
+        console.log(tareasTachadas);
+        if(tareasTachadas.length==0){
+            console.log("ERROR, no hay ninguna tachada");
+            return
+        }
+        tareaRapidisima=tareasTachadas[0];
+        tareasTachadas.map((tarea)=>{
+        if((tarea.fechaTachado-tarea.fechaCreado)<(tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado)){
             tareaRapidisima=tarea;
         }    
         })
-        console.log(`La tarea mas rapida fue ${tareaRapidisima.texto}, tardando ${tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado}`)
+        console.log(`La tarea mas rapida fue ${tareaRapidisima.text}, tardando ${(tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado)}`)
     }
 
   return (

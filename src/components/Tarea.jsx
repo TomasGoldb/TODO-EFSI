@@ -21,11 +21,11 @@ function Tarea({index, tarea, setListaTareas, listaTareas}) {
     }
   return (
     <div  className={tarea.estaTachado ? 'tachado' : ''} >
-      <section class="primera-parte-tarea">
+      <section className="primera-parte-tarea">
         <input type="checkbox" onChange={tachar} />
         <p>{tarea.text}</p> 
         </section>
-        <img onClick={eliminarTarea} class="tacho" src="trash-solid.svg" />
+        <img onClick={eliminarTarea} className="tacho" src="trash-solid.svg" />
     </div>
   )
 }
