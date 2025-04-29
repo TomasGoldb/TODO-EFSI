@@ -42,7 +42,7 @@ function AgregadorDeTareas({listaTareas, setListaTareas}) {
             tareaRapidisima=tarea;
         }    
         })
-        console.log(`La tarea mas rapida fue ${tareaRapidisima.text}, tardando ${(tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado)}`)
+        alert(`La tarea mas rapida fue ${tareaRapidisima.text}`)
     }
 
   return (
