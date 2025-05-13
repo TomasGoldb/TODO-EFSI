@@ -26,23 +26,27 @@ function AgregadorDeTareas({listaTareas, setListaTareas}) {
 
         }
     }
-    let tareaRapidisima;
 
     const tareaMasRapida=()=>{
-        let tareasTachadas=[...listaTareas]
-        tareasTachadas.filter(t=>{t.estaTachado});
+        console.log(listaTareas);
+        let tareasTachadas= listaTareas.filter(t=>t.estaTachado);
         console.log(tareasTachadas);
         if(tareasTachadas.length==0){
             console.log("ERROR, no hay ninguna tachada");
             return
         }
-        tareaRapidisima=tareasTachadas[0];
-        tareasTachadas.map((tarea)=>{
-        if((tarea.fechaTachado-tarea.fechaCreado)<(tareaRapidisima.fechaTachado-tareaRapidisima.fechaCreado)){
-            tareaRapidisima=tarea;
-        }    
-        })
-        alert(`La tarea mas rapida fue ${tareaRapidisima.text}`)
+
+        let tareaRapida = tareasTachadas[0];
+        let menorTiempo = tareaRapida.fechaTachado - tareaRapida.fechaCreado;
+
+        tareasTachadas.forEach((tarea) => {
+        const tiempo = tarea.fechaTachado - tarea.fechaCreado;
+        if (tiempo < menorTiempo) {
+            menorTiempo = tiempo;
+            tareaRapida = tarea;
+        }
+  });
+        alert(`La tarea mas rapida fue ${tareaRapida.text}`)
     }
 
   return (
